@@ -170,7 +170,7 @@ body:not(.light) .designs .dz { background: #0e0e0e; }
 .bts .ph img:hover { opacity: 1; }
 @media (max-width: 760px) { .bts { grid-template-columns: repeat(2, 1fr); } }
 
-.sec-sub { font-size: 15px; font-weight: 300; margin: -30px 0 42px; }
+.sec-sub { font-size: 15px; font-weight: 300; margin: -30px 0 42px; max-width: 620px; }
 
 /* work index — category sections */
 .catsec { margin-top: 64px; }
@@ -182,7 +182,6 @@ body:not(.light) .designs .dz { background: #0e0e0e; }
 /* photography — drifting film strip (pause on hover) */
 .photostrip { overflow: hidden; margin-bottom: 56px; }
 .pstrack { display: flex; width: max-content; animation: pdrift 45s linear infinite; }
-.photostrip:hover .pstrack { animation-play-state: paused; }
 .pstrack img { height: 240px; width: auto; display: block; margin-right: 12px; }
 @media (max-width: 760px) { .pstrack img { height: 150px; } }
 @keyframes pdrift { from { transform: translateX(0); } to { transform: translateX(-50%); } }
@@ -351,7 +350,7 @@ body:not(.light) .brand-img { filter: grayscale(1) invert(1); }
 .ch-photos.three { grid-template-columns: repeat(3, 1fr); }
 .ch-photos .ph { aspect-ratio: 3/2; background: #0e0e0e; }
 .ch-photos .ph img { width: 100%; height: 100%; object-fit: cover; }
-.vstrip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 44px; }
+.vstrip { display: grid; grid-template-columns: repeat(3, minmax(0, 200px)); gap: 14px; margin-top: 34px; }
 .vstrip.two { grid-template-columns: repeat(2, minmax(0, 265px)); }
 .vstrip.one { grid-template-columns: minmax(0, 265px); }
 .vstrip figure { margin: 0; }
@@ -415,3 +414,7 @@ body.light nav .links a:hover, body.light nav .links a.active { color: #fff; }
   .wcol:nth-child(2) { margin-top: 50px; }
   .wcol:nth-child(3) { margin-top: 0; }
 }
+
+/* back link on project pages */
+.backlink { display: inline-block; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--mut); margin-bottom: 26px; transition: opacity .25s; }
+.backlink:hover { opacity: .6; }

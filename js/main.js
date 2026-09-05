@@ -45,3 +45,13 @@ if (tEl) {
   tick();
   setInterval(tick, 30000);
 }
+
+// back links: return to the previous page when it was on this site
+document.querySelectorAll(".backlink").forEach((a) =>
+  a.addEventListener("click", (e) => {
+    if (document.referrer && document.referrer.includes(location.host) && history.length > 1) {
+      e.preventDefault();
+      history.back();
+    }
+  })
+);
