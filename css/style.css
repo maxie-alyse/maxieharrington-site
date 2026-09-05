@@ -270,9 +270,9 @@ body.coverpage { overflow: hidden; }
   color: #fff; mix-blend-mode: difference;
 }
 .vcard:hover .thumb { opacity: 1; }
-.vcard .vmeta { display: flex; justify-content: space-between; align-items: baseline; padding-top: 14px; }
-.vcard .vmeta b { font-family: var(--sans); font-weight: 600; font-size: 18px; letter-spacing: -.01em; }
-.vcard .vmeta .sub { color: #fff; font-weight: 300; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
+.vcard .vmeta { display: block; padding-top: 14px; }
+.vcard .vmeta b { display: block; font-family: var(--sans); font-weight: 600; font-size: 18px; letter-spacing: -.01em; }
+.vcard .vmeta .sub { display: block; margin-top: 5px; color: #fff; font-weight: 300; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; }
 @media (max-width: 760px) { .vgrid { grid-template-columns: 1fr; } }
 
 /* ---------- team list (project pages) ---------- */
