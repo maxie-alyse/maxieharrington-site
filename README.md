@@ -7,7 +7,7 @@ Static site. No framework, no build step. Editing a file and pushing to `main` i
 - `work.html` — filterable project index (role chips)
 - `work/starbound.html` — project page template (video, making-of, facts, credits, stills). Duplicate for each project.
 - `photography.html` — film photography wall
-- `info.html` — bio + contact
+- `about.html` — bio + contact (merged) · `operations.html` — Building Story case study
 - `css/style.css` — all styling (colors/type at the top in `:root`)
 - `js/main.js` — scroll reveals, filters, footer clock
 - `img/` — put all images here (hero.jpg, project covers, stills, photography)
