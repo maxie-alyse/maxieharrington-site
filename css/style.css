@@ -163,6 +163,13 @@ h2.sec {
 
 .sec-sub { font-size: 16px; font-weight: 300; margin: -30px 0 42px; }
 
+/* work index — category sections */
+.catsec { margin-top: 64px; }
+.catsec:first-of-type { margin-top: 26px; }
+.catsec.hide { display: none; }
+.cat-h { font-size: 13px; letter-spacing: .24em; text-transform: uppercase; font-weight: 600; margin-bottom: 8px; }
+.cat-sub { font-size: 15px; font-weight: 300; margin-bottom: 30px; }
+
 /* ---------- photography wall ---------- */
 .wall { columns: 3 300px; column-gap: 14px; }
 .wall .ph { break-inside: avoid; margin-bottom: 14px; background: #0e0e0e; width: 100%; }
