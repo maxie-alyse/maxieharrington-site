@@ -174,7 +174,7 @@ body:not(.light) .designs .dz { background: #0e0e0e; }
 .catsec { margin-top: 64px; }
 .catsec:first-of-type { margin-top: 26px; }
 .catsec.hide { display: none; }
-.cat-h { font-size: 13px; letter-spacing: .24em; text-transform: uppercase; font-weight: 600; margin-bottom: 8px; }
+.cat-h { font-size: 17px; letter-spacing: .2em; text-transform: uppercase; font-weight: 600; margin-bottom: 8px; }
 .cat-sub { font-size: 15px; font-weight: 300; margin-bottom: 30px; }
 
 /* ---------- photography wall ---------- */
