@@ -29,7 +29,7 @@ btns.forEach((b) =>
 
 // theme preview — press L to flip light/dark (persists per browser)
 try {
-  if (localStorage.getItem("theme") === "light") document.body.classList.add("light");
+  if (localStorage.getItem("theme") === "dark") document.body.classList.remove("light");
 } catch (e) {}
 addEventListener("keydown", (e) => {
   if (e.key.toLowerCase() === "l" && !e.metaKey && !e.ctrlKey && !e.altKey) {
