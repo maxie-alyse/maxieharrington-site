@@ -403,3 +403,15 @@ body.light nav .links a:hover, body.light nav .links a.active { color: #fff; }
 
 /* imdb text link in socials rows */
 .socials .imdb-link { font-size: 11px; font-weight: 700; letter-spacing: .08em; }
+
+/* photography — cascading columns */
+.wall2 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; align-items: start; }
+.wcol { display: flex; flex-direction: column; gap: 14px; }
+.wcol:nth-child(2) { margin-top: 80px; }
+.wcol:nth-child(3) { margin-top: 160px; }
+.wall2 img { width: 100%; display: block; }
+@media (max-width: 760px) {
+  .wall2 { grid-template-columns: 1fr 1fr; }
+  .wcol:nth-child(2) { margin-top: 50px; }
+  .wcol:nth-child(3) { margin-top: 0; }
+}
