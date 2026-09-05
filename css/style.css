@@ -168,7 +168,7 @@ body:not(.light) .designs .dz { background: #0e0e0e; }
 .bts .ph img:hover { opacity: 1; }
 @media (max-width: 760px) { .bts { grid-template-columns: repeat(2, 1fr); } }
 
-.sec-sub { font-size: 16px; font-weight: 300; margin: -30px 0 42px; }
+.sec-sub { font-size: 15px; font-weight: 300; margin: -30px 0 42px; }
 
 /* work index — category sections */
 .catsec { margin-top: 64px; }
@@ -390,3 +390,6 @@ body.light .team li { border-bottom-color: #ececec; }
 body.light nav .wordmark { color: #fff; }
 body.light nav .links a { color: rgba(255,255,255,.96); }
 body.light nav .links a:hover, body.light nav .links a.active { color: #fff; }
+
+/* imdb text link in socials rows */
+.socials .imdb-link { font-size: 11px; font-weight: 700; letter-spacing: .08em; }
