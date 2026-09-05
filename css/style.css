@@ -64,7 +64,7 @@ nav .links a:hover, nav .links a.active { color: var(--ink); }
 }
 .coverline {
   position: absolute; top: 74px; font-size: 11px; letter-spacing: .22em;
-  text-transform: uppercase; color: rgba(255,255,255,.75);
+  text-transform: uppercase; color: rgba(255,255,255,.75); line-height: 2.1;
 }
 .coverline.l { left: 32px; } .coverline.r { right: 32px; text-align: right; }
 .hero h1 {
@@ -218,7 +218,8 @@ body.coverpage { overflow: hidden; }
 .cover { position: fixed; inset: 0; display: block; cursor: pointer; }
 .cover .cover-center {
   position: absolute; inset: 0; display: flex; flex-direction: column;
-  align-items: center; justify-content: center; text-align: center; gap: 34px;
+  align-items: center; justify-content: flex-end; padding-bottom: 17vh;
+  text-align: center; gap: 34px;
 }
 .cover h1 {
   font-family: var(--serif); font-weight: 400; letter-spacing: -.02em;
