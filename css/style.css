@@ -282,7 +282,7 @@ body.coverpage { overflow: hidden; }
 .myrole { margin-top: 18px; color: #fff; font-size: 16px; font-style: normal; font-weight: 300; font-family: var(--serif); }
 
 /* ---------- about ---------- */
-.about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 72px; align-items: center; padding-top: 20px; }
+.about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 72px; align-items: start; padding-top: 20px; }
 .headshot { aspect-ratio: 4/5; background: #0e0e0e; overflow: hidden; }
 .headshot img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; }
 .about-copy .big { font-family: var(--sans); font-size: clamp(23px, 3vw, 36px); font-weight: 600; letter-spacing: -.015em; line-height: 1.25; margin-bottom: 22px; }
@@ -303,9 +303,17 @@ body.coverpage { overflow: hidden; }
 .contactline .icons svg { width: 17px; height: 17px; fill: currentColor; display: block; }
 @media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; gap: 36px; } }
 
-/* about — background bio */
-.bio-more { max-width: 640px; margin-top: 100px; }
-.bio-more p { font-size: 16px; font-weight: 300; line-height: 1.8; margin-bottom: 20px; }
+/* about — top photo strip + flipped grid (text left, headshot right) */
+.strip3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 84px; }
+.strip3 img { width: 100%; aspect-ratio: 3/2; object-fit: cover; }
+.about-grid.flip { grid-template-columns: 1.2fr 1fr; }
+.wide-ph { margin-top: 44px; max-width: 560px; }
+.wide-ph img { width: 100%; aspect-ratio: 21/10; object-fit: cover; }
+@media (max-width: 760px) { .strip3 { grid-template-columns: 1fr; } }
+
+/* about — bio paragraphs in right column */
+.about-copy .bio { margin-top: 6px; }
+.about-copy .bio p { font-size: 16px; font-weight: 300; line-height: 1.8; margin-bottom: 20px; max-width: 560px; }
 
 /* brands & partners strip */
 .bgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 34px 24px; align-items: center; }
