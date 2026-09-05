@@ -151,7 +151,8 @@ h2.sec {
 .credits .row { display: grid; grid-template-columns: 200px 1fr; gap: 20px; padding: 7px 0; font-size: 14px; }
 .credits .row span:first-child { color: var(--dim); }
 .stills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-.stills .ph { aspect-ratio: 16/10; background: #0e0e0e; }
+.stills .ph { aspect-ratio: 16/10; background: #0e0e0e; overflow: hidden; }
+.stills .ph img { width: 100%; height: 100%; object-fit: cover; }
 
 /* ---------- photography wall ---------- */
 .wall { columns: 3 300px; column-gap: 14px; }
