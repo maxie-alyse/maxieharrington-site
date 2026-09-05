@@ -1,5 +1,5 @@
 /* maxieharrington.me — dark, editorial, kinetic */
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap');
 :root {
   --bg: #000;
   --ink: #fff;
@@ -7,7 +7,7 @@
   --dim: rgba(255,255,255,.88);
   --line: #222;
   --chip: #161616;
-  --serif: 'Fraunces', Georgia, serif;
+  --serif: 'Newsreader', Georgia, serif;
   --sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
