@@ -10,11 +10,12 @@ const btns = document.querySelectorAll(".filters button");
 btns.forEach((b) =>
   b.addEventListener("click", () => {
     if (b.dataset.href) { location.href = b.dataset.href; return; }
+    const wasOn = b.classList.contains("on");
     btns.forEach((x) => x.classList.remove("on"));
-    b.classList.add("on");
-    const f = b.dataset.f;
+    if (!wasOn) b.classList.add("on");
+    const f = wasOn ? null : b.dataset.f;
     document.querySelectorAll(".catsec").forEach((sec) => {
-      sec.classList.toggle("hide", f !== "all" && sec.dataset.cat !== f);
+      sec.classList.toggle("hide", f !== null && sec.dataset.cat !== f);
     });
   })
 );
