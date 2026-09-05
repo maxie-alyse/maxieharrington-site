@@ -27,6 +27,19 @@ btns.forEach((b) =>
   })
 );
 
+// theme preview — press L to flip light/dark (persists per browser)
+try {
+  if (localStorage.getItem("theme") === "light") document.body.classList.add("light");
+} catch (e) {}
+addEventListener("keydown", (e) => {
+  if (e.key.toLowerCase() === "l" && !e.metaKey && !e.ctrlKey && !e.altKey) {
+    document.body.classList.toggle("light");
+    try {
+      localStorage.setItem("theme", document.body.classList.contains("light") ? "light" : "dark");
+    } catch (err) {}
+  }
+});
+
 // live local time in footer (SF)
 const tEl = document.getElementById("localtime");
 if (tEl) {
