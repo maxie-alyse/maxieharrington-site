@@ -330,3 +330,28 @@ body.coverpage { overflow: hidden; }
 @media (max-width: 760px) { .vgrid.small { grid-template-columns: 1fr; } }
 
 .vcard.hide { display: none; }
+
+/* ---------- light theme (press L) ---------- */
+body.light {
+  --bg: #fff;
+  --ink: #000;
+  --mut: rgba(0,0,0,.96);
+  --dim: rgba(0,0,0,.86);
+  --line: #e4e4e4;
+  --chip: #f4f4f4;
+}
+body.light .lede, body.light .ch-body, body.light .proj-cols .making p,
+body.light .info-wrap p, body.light .facts dd, body.light .myrole,
+body.light .ticker span, body.light .vcard .vmeta .sub, body.light .brand,
+body.light .contactline, body.light .contactline a, body.light .filter-note,
+body.light footer .socials a { color: #000; }
+body.light .thumb, body.light .stills .ph, body.light .bts .ph,
+body.light .ch-photos .ph, body.light .headshot, body.light .vstrip video,
+body.light .video-frame, body.light .vgrid.small .thumb { background-color: #efefef; }
+body.light .video-frame { border-color: var(--line); }
+body.light .sep { border-top-color: #ccc; }
+body.light .team li { border-bottom-color: #ececec; }
+/* nav sits in mix-blend-mode:difference — keep its text white so it self-inverts */
+body.light nav .wordmark { color: #fff; }
+body.light nav .links a { color: rgba(255,255,255,.96); }
+body.light nav .links a:hover, body.light nav .links a.active { color: #fff; }
