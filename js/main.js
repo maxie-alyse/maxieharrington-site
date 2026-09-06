@@ -55,3 +55,37 @@ document.querySelectorAll(".backlink").forEach((a) =>
     }
   })
 );
+
+// photo carousels: slow auto-drift, arrows on hover, seamless wrap
+document.querySelectorAll(".photostrip").forEach((strip) => {
+  const track = strip.querySelector(".pstrack");
+  if (!track) return;
+  let x = 0, tx = 0, pausedUntil = 0;
+  const speed = 0.35;
+  function arrow(ch, dir, cls) {
+    const b = document.createElement("button");
+    b.className = "ps-arrow " + cls;
+    b.textContent = ch;
+    b.setAttribute("aria-label", dir < 0 ? "Previous" : "Next");
+    b.addEventListener("click", () => { tx += dir * 420; pausedUntil = Date.now() + 4000; });
+    strip.appendChild(b);
+  }
+  arrow("\u2039", -1, "left");
+  arrow("\u203a", 1, "right");
+  const imgs = Array.from(track.querySelectorAll("img"));
+  let ready = false;
+  Promise.all(imgs.map((im) => im.complete ? Promise.resolve() : new Promise((res) => { im.onload = im.onerror = res; })))
+    .then(() => { ready = true; });
+  (function step() {
+    if (!ready) { requestAnimationFrame(step); return; }
+    if (Date.now() > pausedUntil) tx += speed;
+    x += (tx - x) * 0.12;
+    const half = track.scrollWidth / 2;
+    if (half > 0) {
+      if (x >= half) { x -= half; tx -= half; }
+      if (x < 0) { x += half; tx += half; }
+    }
+    track.style.transform = "translate3d(" + (-x) + "px,0,0)";
+    requestAnimationFrame(step);
+  })();
+});

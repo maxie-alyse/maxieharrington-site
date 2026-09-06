@@ -180,9 +180,9 @@ body:not(.light) .designs .dz { background: #0e0e0e; }
 .cat-sub { font-size: 15px; font-weight: 300; margin-bottom: 30px; }
 
 /* photography — drifting film strip (pause on hover) */
-.photostrip { overflow: hidden; margin-bottom: 56px; }
-.pstrack { display: flex; width: max-content; animation: pdrift 45s linear infinite; }
-.pstrack img { height: 240px; width: auto; display: block; margin-right: 12px; }
+.photostrip { overflow: hidden; margin-bottom: 56px; min-height: 240px; }
+.pstrack { display: flex; width: max-content; will-change: transform; }
+.pstrack img { height: 240px; width: auto; display: block; margin-right: 12px; background: #f0f0f0; }
 @media (max-width: 760px) { .pstrack img { height: 150px; } }
 @keyframes pdrift { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
@@ -419,5 +419,19 @@ body.light nav .links a:hover, body.light nav .links a.active { color: #fff; }
 .backlink { display: inline-block; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--mut); margin-bottom: 26px; transition: opacity .25s; }
 .backlink:hover { opacity: .6; }
 
-.vstrip.six { grid-template-columns: repeat(6, minmax(0, 152px)); }
+.vstrip.six { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); max-width: 1136px; }
 @media (max-width: 760px) { .vstrip.six { grid-template-columns: repeat(3, 1fr); } }
+
+/* carousel arrows — appear on hover at the edges */
+.photostrip { position: relative; }
+.ps-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 38px; height: 38px; border-radius: 50%;
+  background: rgba(255,255,255,.92); border: 0.5px solid #ccc; color: #000;
+  font-size: 20px; line-height: 1; cursor: pointer;
+  opacity: 0; transition: opacity .25s; z-index: 2;
+}
+.ps-arrow.left { left: 10px; }
+.ps-arrow.right { right: 10px; }
+.photostrip:hover .ps-arrow { opacity: 1; }
+@media (hover: none) { .ps-arrow { opacity: 1; } }
