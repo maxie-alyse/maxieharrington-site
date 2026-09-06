@@ -270,7 +270,7 @@ body.coverpage { overflow: hidden; }
 .vgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 28px; }
 .vcard .thumb {
   aspect-ratio: 16/9; background: #0d0d0d center/cover; overflow: hidden;
-  transition: opacity .35s; opacity: .88;
+  transition: opacity .35s; opacity: 1;
   position: relative;
 }
 .thumb .soon {
@@ -368,7 +368,7 @@ body:not(.light) .brand-img { filter: grayscale(1) invert(1); }
 /* beyond-the-frame: quieter secondary grid */
 .also-sec { margin-top: 90px; }
 .vgrid.small { grid-template-columns: repeat(3, 1fr); gap: 28px 22px; }
-.vgrid.small .thumb { aspect-ratio: 3/2; opacity: .78; }
+.vgrid.small .thumb { aspect-ratio: 3/2; }
 .vgrid.small .vmeta b { font-size: 17px; }
 .vgrid.small .vmeta .sub { font-size: 11px; }
 @media (max-width: 760px) { .vgrid.small { grid-template-columns: 1fr; } }
