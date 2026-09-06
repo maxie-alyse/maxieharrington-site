@@ -501,7 +501,7 @@ nav .links .dropmenu a { display: block; margin-left: 0; padding: 5px 0; font-si
 .about-mosaic .ph img { width: 100%; height: 100%; object-fit: cover; }
 .about-mosaic .draw { grid-column: 3; grid-row: 1 / span 2; }
 .about-mosaic .draw { display: flex; align-items: center; justify-content: center; }
-.about-mosaic .draw img { width: 92%; height: auto; display: block; }
+.about-mosaic .draw img { width: 100%; height: auto; display: block; }
 @media (max-width: 760px) { .about-mosaic { grid-template-columns: 1fr 1fr; } .about-mosaic .draw { grid-column: 2; grid-row: 1 / span 2; } }
 
 /* scattered collage + scroll drift */
@@ -511,3 +511,7 @@ nav .links .dropmenu a { display: block; margin-left: 0; padding: 5px 0; font-si
 @media (max-width: 760px) {
   .scatter .sc { grid-column: auto / span 6 !important; margin-top: 24px !important; }
 }
+
+/* footer mark */
+.footmark { height: 30px; width: auto; vertical-align: -10px; margin-right: 14px; display: inline-block; }
+body:not(.light) .footmark { filter: invert(1); }
