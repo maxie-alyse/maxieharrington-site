@@ -334,7 +334,7 @@ body:not(.light) .brand-img { filter: grayscale(1) invert(1); }
 
 /* ---------- operations case study ---------- */
 .ops { max-width: 860px; }
-.ops-hero { padding: 60px 0 30px; }
+.ops-hero { padding: 60px 0 0; }
 .ops-hero h1 { font-family: var(--sans); font-size: clamp(44px, 8vw, 96px); font-weight: 700; letter-spacing: -.03em; line-height: .95; margin: 18px 0 30px; }
 .ops-hero .lede { font-size: 18px; max-width: 640px; }
 .statrow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 38px 0; margin: 40px 0 30px; }
@@ -443,3 +443,17 @@ body.light nav .links a:hover, body.light nav .links a.active { color: #fff; }
 .worklist a:hover { opacity: .6; }
 .worklist b { font-weight: 600; font-size: 15px; }
 .worklist span { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 300; white-space: nowrap; }
+
+/* nav About dropdown */
+.navdrop { position: relative; display: inline-block; margin-left: 26px; }
+.navdrop > a { margin-left: 0; }
+.dropmenu { position: absolute; top: 100%; right: 0; display: none; padding-top: 12px; min-width: 150px; text-align: right; }
+.navdrop:hover .dropmenu, .navdrop:focus-within .dropmenu { display: block; }
+nav .links .dropmenu a { display: block; margin-left: 0; padding: 5px 0; font-size: 11px; }
+
+/* text tile for cards without a video thumbnail */
+.thumb .tword {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 11px; letter-spacing: .3em; text-transform: uppercase;
+  color: #fff; mix-blend-mode: difference;
+}
