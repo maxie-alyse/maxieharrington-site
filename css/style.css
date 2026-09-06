@@ -418,3 +418,6 @@ body.light nav .links a:hover, body.light nav .links a.active { color: #fff; }
 /* back link on project pages */
 .backlink { display: inline-block; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--mut); margin-bottom: 26px; transition: opacity .25s; }
 .backlink:hover { opacity: .6; }
+
+.vstrip.six { grid-template-columns: repeat(6, minmax(0, 152px)); }
+@media (max-width: 760px) { .vstrip.six { grid-template-columns: repeat(3, 1fr); } }
