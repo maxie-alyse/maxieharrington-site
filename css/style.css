@@ -557,15 +557,16 @@ body:not(.light)::after { mix-blend-mode: screen; opacity: .04; }
 }
 
 /* the shelf — books stand at a tilt, straighten on hover */
-.shelf { display: flex; gap: 40px; flex-wrap: wrap; align-items: flex-end; perspective: 1400px; padding-bottom: 14px; }
+.shelf { display: flex; gap: clamp(16px, 2.6vw, 36px); flex-wrap: nowrap; align-items: flex-end; perspective: 1400px; padding-bottom: 14px; }
 .bk { position: relative; transform: rotateY(-24deg); transform-style: preserve-3d; transition: transform .45s ease; }
-.bk img { height: 240px; width: auto; display: block; border-radius: 2px 5px 5px 2px;
+.bk { flex: 1 1 0; min-width: 0; }
+.bk img { width: 100%; height: auto; display: block; border-radius: 2px 5px 5px 2px;
   box-shadow: 14px 16px 28px rgba(0,0,0,.30), 4px 4px 10px rgba(0,0,0,.18); }
 .bk::before { content: ""; position: absolute; top: 0; left: 0; bottom: 0; width: 9%;
   background: linear-gradient(to right, rgba(0,0,0,.32), rgba(255,255,255,.22) 55%, rgba(0,0,0,.08));
   border-radius: 2px 0 0 2px; pointer-events: none; }
 .bk:hover { transform: rotateY(-4deg) translateY(-8px); }
-@media (max-width: 760px) { .shelf { gap: 24px; } .bk img { height: 170px; } }
+@media (max-width: 760px) { .shelf { flex-wrap: wrap; gap: 20px; } .bk { flex: 0 0 28%; } }
 
 .bio a { border-bottom: 0.5px solid var(--line); transition: color .25s, border-color .25s; }
 .bio a:hover { color: #E2711D; border-color: #E2711D; }
