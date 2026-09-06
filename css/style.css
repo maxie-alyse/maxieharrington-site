@@ -549,3 +549,9 @@ body::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 body:not(.light)::after { mix-blend-mode: screen; opacity: .04; }
+
+/* mobile: nav scrolls with the page instead of floating over it */
+@media (max-width: 760px) {
+  nav { position: static; mix-blend-mode: normal; background: var(--bg); }
+  .page { padding-top: 40px; }
+}
