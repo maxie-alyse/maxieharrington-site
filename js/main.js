@@ -88,3 +88,29 @@ document.querySelectorAll(".vcard .hoverplay").forEach((v) => {
   card.addEventListener("mouseenter", () => { v.play().catch(() => {}); });
   card.addEventListener("mouseleave", () => { v.pause(); });
 });
+
+// scatter drift: each piece lags the scroll at its own speed
+(function () {
+  const items = Array.from(document.querySelectorAll("[data-sp]"));
+  if (!items.length || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const st = items.map((el) => ({ el, sp: parseFloat(el.dataset.sp), y: 0, base: 0 }));
+  function measure() {
+    st.forEach((s) => {
+      s.el.style.transform = "";
+      const r = s.el.getBoundingClientRect();
+      s.base = r.top + scrollY + r.height / 2;
+    });
+  }
+  measure();
+  addEventListener("resize", measure);
+  addEventListener("load", measure);
+  (function tick() {
+    const vc = scrollY + innerHeight / 2;
+    st.forEach((s) => {
+      const target = (vc - s.base) * s.sp;
+      s.y += (target - s.y) * 0.06;
+      s.el.style.transform = "translate3d(0," + s.y.toFixed(1) + "px,0)";
+    });
+    requestAnimationFrame(tick);
+  })();
+})();

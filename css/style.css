@@ -502,3 +502,11 @@ nav .links .dropmenu a { display: block; margin-left: 0; padding: 5px 0; font-si
 .about-mosaic .draw { grid-column: 3; grid-row: 1 / span 2; }
 .about-mosaic .draw img { width: 100%; height: 100%; object-fit: cover; display: block; }
 @media (max-width: 760px) { .about-mosaic { grid-template-columns: 1fr 1fr; } .about-mosaic .draw { grid-column: 2; grid-row: 1 / span 2; } }
+
+/* scattered collage + scroll drift */
+.scatter { display: grid; grid-template-columns: repeat(12, 1fr); gap: 0 16px; margin-top: 30px; }
+.scatter .sc { will-change: transform; }
+.scatter .sc img, .scatter .sc video { width: 100%; display: block; }
+@media (max-width: 760px) {
+  .scatter .sc { grid-column: auto / span 6 !important; margin-top: 24px !important; }
+}
