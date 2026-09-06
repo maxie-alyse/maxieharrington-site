@@ -482,3 +482,7 @@ nav .links .dropmenu a { display: block; margin-left: 0; padding: 5px 0; font-si
 .motion2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
 .motion2 video { width: 100%; display: block; }
 @media (max-width: 760px) { .motion2 { grid-template-columns: 1fr; } }
+
+.motion3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.motion3 video { width: 100%; display: block; }
+@media (max-width: 760px) { .motion3 { grid-template-columns: 1fr; } }
