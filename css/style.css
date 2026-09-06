@@ -513,5 +513,7 @@ nav .links .dropmenu a { display: block; margin-left: 0; padding: 5px 0; font-si
 }
 
 /* footer mark */
-.footmark { height: 80px; width: auto; display: block; margin-bottom: 12px; }
+.footmark { height: 80px; width: auto; display: block; }
 body:not(.light) .footmark { filter: invert(1); }
+
+.footright { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
