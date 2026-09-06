@@ -501,7 +501,7 @@ nav .links .dropmenu a { display: block; margin-left: 0; padding: 5px 0; font-si
 .about-mosaic .ph img { width: 100%; height: 100%; object-fit: cover; }
 .about-mosaic .draw { grid-column: 3; grid-row: 1 / span 2; }
 .about-mosaic .draw { display: flex; align-items: stretch; justify-content: center; }
-.about-mosaic .draw img { width: 100%; height: 100%; object-fit: contain; object-position: top; display: block; }
+.about-mosaic .draw img { width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; }
 @media (max-width: 760px) { .about-mosaic { grid-template-columns: 1fr 1fr; } .about-mosaic .draw { grid-column: 2; grid-row: 1 / span 2; } }
 
 /* scattered collage + scroll drift */
@@ -523,7 +523,7 @@ footer { align-items: flex-end; }
 
 /* label tier goes orange — site-wide */
 h2.sec, .kicker, .ch-yr, .facts dt, .credits .row span:first-child,
-.vstrip figcaption, .work-row .yr, .filter-note { color: #E2711D; }
+.vstrip figcaption, .work-row .yr, .filter-note { color: #E2711D; font-weight: 500; }
 
 /* tighter hero-to-chapter rhythm on Building Story */
 .ops .chapter { padding-top: 56px; }
