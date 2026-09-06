@@ -555,3 +555,14 @@ body:not(.light)::after { mix-blend-mode: screen; opacity: .04; }
   nav { position: static; mix-blend-mode: normal; background: var(--bg); }
   .page { padding-top: 40px; }
 }
+
+/* the shelf — books stand at a tilt, straighten on hover */
+.shelf { display: flex; gap: 40px; flex-wrap: wrap; align-items: flex-end; perspective: 1400px; padding-bottom: 14px; }
+.bk { position: relative; transform: rotateY(-24deg); transform-style: preserve-3d; transition: transform .45s ease; }
+.bk img { height: 240px; width: auto; display: block; border-radius: 2px 5px 5px 2px;
+  box-shadow: 14px 16px 28px rgba(0,0,0,.30), 4px 4px 10px rgba(0,0,0,.18); }
+.bk::before { content: ""; position: absolute; top: 0; left: 0; bottom: 0; width: 9%;
+  background: linear-gradient(to right, rgba(0,0,0,.32), rgba(255,255,255,.22) 55%, rgba(0,0,0,.08));
+  border-radius: 2px 0 0 2px; pointer-events: none; }
+.bk:hover { transform: rotateY(-4deg) translateY(-8px); }
+@media (max-width: 760px) { .shelf { gap: 24px; } .bk img { height: 170px; } }
