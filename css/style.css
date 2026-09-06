@@ -457,3 +457,15 @@ nav .links .dropmenu a { display: block; margin-left: 0; padding: 5px 0; font-si
   font-size: 11px; letter-spacing: .3em; text-transform: uppercase;
   color: #fff; mix-blend-mode: difference;
 }
+
+/* accent — appears only on interaction. palette: CC5803 E2711D FF9505 FFB627 FFC971 */
+::selection { background: #FFB627; color: #000; }
+.filters button:hover { border-color: #E2711D; color: #E2711D; }
+.backlink:hover { color: #E2711D; }
+.ch-body a:hover { color: #E2711D; border-color: #E2711D; }
+.opslink a:hover, .ops-close a:hover { color: #E2711D; }
+.facts a:hover { color: #E2711D; }
+
+/* hover-to-play card loops */
+.thumb .hoverplay { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .35s; }
+.vcard:hover .thumb .hoverplay { opacity: 1; }

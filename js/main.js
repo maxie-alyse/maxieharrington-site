@@ -89,3 +89,10 @@ document.querySelectorAll(".photostrip").forEach((strip) => {
     requestAnimationFrame(step);
   })();
 });
+
+// hover-to-play card loops
+document.querySelectorAll(".vcard .hoverplay").forEach((v) => {
+  const card = v.closest(".vcard");
+  card.addEventListener("mouseenter", () => { v.play().catch(() => {}); });
+  card.addEventListener("mouseleave", () => { v.pause(); });
+});
