@@ -566,3 +566,6 @@ body:not(.light)::after { mix-blend-mode: screen; opacity: .04; }
   border-radius: 2px 0 0 2px; pointer-events: none; }
 .bk:hover { transform: rotateY(-4deg) translateY(-8px); }
 @media (max-width: 760px) { .shelf { gap: 24px; } .bk img { height: 170px; } }
+
+.bio a { border-bottom: 0.5px solid var(--line); transition: color .25s, border-color .25s; }
+.bio a:hover { color: #E2711D; border-color: #E2711D; }
