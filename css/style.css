@@ -570,3 +570,11 @@ body:not(.light)::after { mix-blend-mode: screen; opacity: .04; }
 
 .bio a { border-bottom: 0.5px solid var(--line); transition: color .25s, border-color .25s; }
 .bio a:hover { color: #E2711D; border-color: #E2711D; }
+
+/* mobile: no hover dropdown — show About Me + Building Story as plain nav links */
+@media (max-width: 760px) {
+  .navdrop { display: contents; }
+  .navdrop > a { display: none; }
+  .dropmenu { display: contents; }
+  nav .links .dropmenu a { display: inline; margin-left: 26px; padding: 0; font-size: 12px; }
+}
