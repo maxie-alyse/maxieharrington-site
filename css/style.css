@@ -256,7 +256,7 @@ body.coverpage { overflow: hidden; }
   border: 1px solid rgba(255,255,255,.35); padding: 13px 34px; border-radius: 99px;
   transition: all .3s; animation: pulse 3s ease-in-out infinite;
 }
-.cover:hover .enter { background: #fff; color: #000; border-color: #fff; animation: none; }
+.cover:hover .enter { background: #E2711D; color: #000; border-color: #E2711D; animation: none; }
 @keyframes pulse { 0%,100% { opacity:.65 } 50% { opacity:1 } }
 .runfoot-cover {
   position: absolute; bottom: 26px; left: 0; right: 0; text-align: center;
@@ -527,3 +527,25 @@ h2.sec, .kicker, .ch-yr, .facts dt, .credits .row span:first-child,
 
 /* tighter hero-to-chapter rhythm on Building Story */
 .ops .chapter { padding-top: 56px; }
+
+/* cover mark — white ink over the video */
+.covermark { position: absolute; top: 40px; left: 32px; height: 96px; width: auto; filter: invert(1); opacity: .92; z-index: 2; }
+
+/* campaign captions back to ink; header stays orange */
+.vstrip figcaption { color: var(--ink); }
+
+/* orange pops: active pill + the ops CTA + carousel arrows on hover */
+.filters button.on { background: #E2711D; border-color: #E2711D; color: #fff; }
+.opslink a { color: #E2711D; }
+.ps-arrow:hover { border-color: #E2711D; color: #E2711D; }
+
+/* paper: warm off-white + faint grain */
+body.light { --bg: #FCFBF8; --chip: #f4f2ee; }
+body.light .thumb, body.light .stills .ph, body.light .bts .ph,
+body.light .ch-photos .ph, body.light .video-frame, body.light .vgrid.small .thumb { background-color: #f1efe9; }
+body::after {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 999;
+  opacity: .028; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+body:not(.light)::after { mix-blend-mode: screen; opacity: .04; }
