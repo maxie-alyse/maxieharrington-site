@@ -6,17 +6,9 @@ const io = new IntersectionObserver(
 document.querySelectorAll(".rv").forEach((el) => io.observe(el));
 
 // work index filters
-const btns = document.querySelectorAll(".filters button");
-btns.forEach((b) =>
+document.querySelectorAll(".filters button").forEach((b) =>
   b.addEventListener("click", () => {
-    if (b.dataset.href) { location.href = b.dataset.href; return; }
-    const wasOn = b.classList.contains("on");
-    btns.forEach((x) => x.classList.remove("on"));
-    if (!wasOn) b.classList.add("on");
-    const f = wasOn ? null : b.dataset.f;
-    document.querySelectorAll(".catsec").forEach((sec) => {
-      sec.classList.toggle("hide", f !== null && sec.dataset.cat !== f);
-    });
+    if (b.dataset.href) location.href = b.dataset.href;
   })
 );
 
