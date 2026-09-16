@@ -595,7 +595,7 @@ body:not(.light)::after { mix-blend-mode: screen; opacity: .04; }
 .ftrack { display: flex; gap: 30px; width: max-content; will-change: transform; padding-left: 30px; }
 .fband { touch-action: pan-y; cursor: grab; }
 .fband.dragging { cursor: grabbing; }
-.ftrack img { pointer-events: none; -webkit-user-drag: none; user-select: none; }
+.ftrack img { -webkit-user-drag: none; user-select: none; }
 .ftrack img { height: 310px; width: auto; display: block; border-radius: 2px; }
 @media (max-width: 760px) {
   .fband { margin-bottom: 16px; }
@@ -608,3 +608,12 @@ body:not(.light)::after { mix-blend-mode: screen; opacity: .04; }
 
 /* prevent full-bleed bands from adding a horizontal scrollbar */
 body:has(.fband) { overflow-x: hidden; }
+
+/* lightbox — click a photo to view it full frame */
+main img:not(a img) { cursor: zoom-in; }
+.lbx { position: fixed; inset: 0; z-index: 60; display: flex; align-items: center; justify-content: center;
+  background: rgba(252,251,248,.97); cursor: zoom-out; opacity: 0; transition: opacity .25s ease; }
+.lbx.on { opacity: 1; }
+.lbx img { max-width: 94vw; max-height: 92vh; width: auto; height: auto; box-shadow: 0 10px 60px rgba(0,0,0,.18); }
+body:not(.light) .lbx { background: rgba(0,0,0,.96); }
+body.lbx-open { overflow: hidden; }

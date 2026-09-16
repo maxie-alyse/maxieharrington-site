@@ -133,14 +133,14 @@ document.querySelectorAll(".vcard .hoverplay").forEach((v) => {
     band.addEventListener('mouseenter', function(){ hover = true; });
     band.addEventListener('mouseleave', function(){ hover = false; });
     band.addEventListener('pointerdown', function(e){
-      dragging = true; glide = 0; vel = 0; lastPX = e.clientX;
+      dragging = true; glide = 0; vel = 0; lastPX = e.clientX; band._moved = 0;
       band.classList.add('dragging');
       band.setPointerCapture && band.setPointerCapture(e.pointerId);
     });
     band.addEventListener('pointermove', function(e){
       if (!dragging) return;
       var dx = e.clientX - lastPX; lastPX = e.clientX;
-      x += dx; vel = dx;
+      x += dx; vel = dx; band._moved = (band._moved || 0) + Math.abs(dx);
     });
     function endDrag(){
       if (!dragging) return;
@@ -166,4 +166,38 @@ document.querySelectorAll(".vcard .hoverplay").forEach((v) => {
     }
     requestAnimationFrame(step);
   });
+})();
+
+
+// lightbox — click any non-link photo to view it full frame
+(function(){
+  var main = document.querySelector('main');
+  if (!main) return;
+  var box = null;
+  function close(){
+    if (!box) return;
+    box.classList.remove('on');
+    document.body.classList.remove('lbx-open');
+    var b = box; box = null;
+    setTimeout(function(){ b.remove(); }, 260);
+  }
+  function open(src, alt){
+    box = document.createElement('div');
+    box.className = 'lbx';
+    var im = document.createElement('img');
+    im.src = src; im.alt = alt || '';
+    box.appendChild(im);
+    box.addEventListener('click', close);
+    document.body.appendChild(box);
+    document.body.classList.add('lbx-open');
+    requestAnimationFrame(function(){ box.classList.add('on'); });
+  }
+  main.addEventListener('click', function(e){
+    var img = e.target.closest('img');
+    if (!img || img.closest('a') || img.closest('.lbx')) return;
+    var band = img.closest('.fband');
+    if (band && (band._moved || 0) > 6) return;
+    open(img.currentSrc || img.src, img.alt);
+  });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
 })();
