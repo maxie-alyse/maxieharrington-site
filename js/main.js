@@ -114,3 +114,30 @@ document.querySelectorAll(".vcard .hoverplay").forEach((v) => {
     requestAnimationFrame(tick);
   })();
 })();
+
+// film drift bands — slow idle drift, hover pause, seamless loop
+(function(){
+  var tracks = document.querySelectorAll('.ftrack');
+  if (!tracks.length) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var speeds = [0.18, -0.13, 0.10];
+  tracks.forEach(function(tr, i){
+    var v = speeds[i % speeds.length], x = 0, half = 0, paused = false;
+    function measure(){ half = tr.scrollWidth / 2; }
+    if (document.readyState === 'complete') measure();
+    window.addEventListener('load', measure);
+    setTimeout(measure, 800);
+    tr.parentElement.addEventListener('mouseenter', function(){ paused = true; });
+    tr.parentElement.addEventListener('mouseleave', function(){ paused = false; });
+    function step(){
+      if (!paused && half > 0){
+        x -= v;
+        if (x <= -half) x += half;
+        if (x > 0) x -= half;
+        tr.style.transform = 'translate3d(' + x + 'px,0,0)';
+      }
+      requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  });
+})();
