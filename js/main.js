@@ -197,7 +197,7 @@ document.querySelectorAll(".vcard .hoverplay").forEach((v) => {
     if (!img || img.closest('a') || img.closest('.lbx')) return;
     var band = img.closest('.fband');
     if (band && (band._moved || 0) > 6) return;
-    open(img.currentSrc || img.src, img.alt);
+    open(img.dataset.full || img.currentSrc || img.src, img.alt);
   });
   document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
 })();
