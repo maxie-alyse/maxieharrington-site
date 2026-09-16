@@ -446,7 +446,7 @@ body.light nav .links a:hover, body.light nav .links a.active { color: #fff; }
 
 /* nav About dropdown */
 .navdrop { position: relative; display: inline-block; margin-left: 26px; }
-.navdrop > a { margin-left: 0; }
+nav .links .navdrop > a { margin-left: 0; }
 .dropmenu { position: absolute; top: 100%; right: 0; display: none; padding-top: 12px; min-width: 150px; text-align: right; }
 .navdrop:hover .dropmenu, .navdrop:focus-within .dropmenu { display: block; }
 nav .links .dropmenu a { display: block; margin-left: 0; padding: 5px 0; font-size: 11px; }
