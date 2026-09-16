@@ -585,7 +585,7 @@ body:not(.light)::after { mix-blend-mode: screen; opacity: .04; }
   nav .links { display: flex !important; flex-wrap: wrap; gap: 6px 22px; margin-top: 10px; }
   nav .links a { margin-left: 0 !important; color: var(--mut) !important; display: inline-block !important; }
   .navdrop { display: contents !important; }
-  .navdrop > a { display: none !important; }
+  nav .links .navdrop > a { display: none !important; }
   .dropmenu { display: contents !important; position: static !important; }
   nav .links .dropmenu a { display: inline-block !important; margin-left: 0 !important; padding: 0; font-size: 12px; }
 }
@@ -593,6 +593,9 @@ body:not(.light)::after { mix-blend-mode: screen; opacity: .04; }
 /* film drift bands (photography) — full-bleed out of the centered .page column */
 .fband { overflow: hidden; margin: 0 calc(50% - 50vw) 30px; }
 .ftrack { display: flex; gap: 30px; width: max-content; will-change: transform; padding-left: 30px; }
+.fband { touch-action: pan-y; cursor: grab; }
+.fband.dragging { cursor: grabbing; }
+.ftrack img { pointer-events: none; -webkit-user-drag: none; user-select: none; }
 .ftrack img { height: 310px; width: auto; display: block; border-radius: 2px; }
 @media (max-width: 760px) {
   .fband { margin-bottom: 16px; }

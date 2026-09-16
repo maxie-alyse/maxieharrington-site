@@ -115,23 +115,49 @@ document.querySelectorAll(".vcard .hoverplay").forEach((v) => {
   })();
 })();
 
-// film drift bands — slow idle drift, hover pause, seamless loop
+// film drift bands — slow idle drift, hover pause, drag/swipe to browse
 (function(){
   var tracks = document.querySelectorAll('.ftrack');
   if (!tracks.length) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var speeds = [0.18, -0.13, 0.10];
   tracks.forEach(function(tr, i){
-    var v = speeds[i % speeds.length], x = 0, half = 0, paused = false;
+    var base = reduced ? 0 : speeds[i % speeds.length];
+    var x = 0, half = 0, hover = false, dragging = false;
+    var lastPX = 0, vel = 0, glide = 0;
+    var band = tr.parentElement;
     function measure(){ half = tr.scrollWidth / 2; }
     if (document.readyState === 'complete') measure();
     window.addEventListener('load', measure);
     setTimeout(measure, 800);
-    tr.parentElement.addEventListener('mouseenter', function(){ paused = true; });
-    tr.parentElement.addEventListener('mouseleave', function(){ paused = false; });
+    band.addEventListener('mouseenter', function(){ hover = true; });
+    band.addEventListener('mouseleave', function(){ hover = false; });
+    band.addEventListener('pointerdown', function(e){
+      dragging = true; glide = 0; vel = 0; lastPX = e.clientX;
+      band.classList.add('dragging');
+      band.setPointerCapture && band.setPointerCapture(e.pointerId);
+    });
+    band.addEventListener('pointermove', function(e){
+      if (!dragging) return;
+      var dx = e.clientX - lastPX; lastPX = e.clientX;
+      x += dx; vel = dx;
+    });
+    function endDrag(){
+      if (!dragging) return;
+      dragging = false; glide = vel;
+      band.classList.remove('dragging');
+    }
+    band.addEventListener('pointerup', endDrag);
+    band.addEventListener('pointercancel', endDrag);
     function step(){
-      if (!paused && half > 0){
-        x -= v;
+      if (half > 0){
+        if (!dragging){
+          if (Math.abs(glide) > Math.abs(base)){
+            x += glide; glide *= 0.95;
+          } else if (!hover){
+            x -= base;
+          }
+        }
         if (x <= -half) x += half;
         if (x > 0) x -= half;
         tr.style.transform = 'translate3d(' + x + 'px,0,0)';
